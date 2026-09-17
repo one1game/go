@@ -47,7 +47,6 @@ header{position:sticky;top:0;z-index:20;padding-top:var(--safe-t);background:col
 .field input:focus,.field textarea:focus{border-color:var(--acc)}
 .field textarea{min-height:64px;resize:vertical}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 .hint{font-size:12px;color:var(--dim);margin-top:4px}
 input[type=color]{height:44px;padding:4px;background:var(--bg-soft)}
 .check{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600;padding:4px 0}
@@ -117,17 +116,24 @@ pre{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;pa
         <div class="hint">можно оставить пустым</div>
       </div>
     </div>
-    <div class="three">
+    <div class="two">
       <div class="field">
         <label>Облик (эмодзи)</label>
         <input id="f-cover" placeholder="🦆" maxlength="4" autocomplete="off">
       </div>
       <div class="field">
-        <label>Цвет 1</label>
+        <label>Фон игры</label>
+        <input id="f-bg" type="color" value="#0b0d12">
+        <div class="hint">под него красится обёртка и полоса браузера</div>
+      </div>
+    </div>
+    <div class="two">
+      <div class="field">
+        <label>Цвет 1 (превью и кнопки)</label>
         <input id="f-c1" type="color" value="#5b8cff">
       </div>
       <div class="field">
-        <label>Цвет 2</label>
+        <label>Цвет 2 (превью и кнопки)</label>
         <input id="f-c2" type="color" value="#22d3a6">
       </div>
     </div>
@@ -264,6 +270,7 @@ pre{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;pa
     $('#f-slug').value = g.slug || '';
     $('#f-url').value = g.url || '';
     $('#f-cover').value = g.cover || '';
+    $('#f-bg').value = g.bg || '#0b0d12';
     $('#f-tags').value = (g.tags || []).join(', ');
     $('#f-desc').value = g.desc || '';
     $('#f-date').value = g.date || new Date().toISOString().slice(0, 10);
